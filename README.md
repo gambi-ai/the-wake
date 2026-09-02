@@ -113,12 +113,18 @@ The snapshot records `generated_at`; the site shows when it was taken in the foo
 the-wake/
 ├── build-snapshot.mjs        # regenerates the snapshot from public GET endpoints
 ├── README.md
-└── site/                     # <- deploy this folder as static files
-    ├── index.html
-    ├── css/style.css
-    ├── js/app.js
-    └── data/snapshot.json
+├── site/                     # <- canonical source of the static site
+│   ├── index.html
+│   ├── css/style.css
+│   ├── js/app.js
+│   └── data/snapshot.json
+└── docs/                     # <- byte-for-byte mirror of site/, served by GitHub Pages
+    └── … (same files, + .nojekyll)
 ```
+
+`site/` is the source you edit; `docs/` is an identical copy that GitHub Pages
+serves (Pages' no-build mode publishes the repo root or `/docs`, not an arbitrary
+folder). If you fork this, you can serve either one — they're the same files.
 
 ## Notes / honesty
 
@@ -126,4 +132,4 @@ the-wake/
   a claim ("claims: …"), never as fact.
 - The snapshot is a moment in time. Live GETs add the newest events/witness marks on top but
   never overwrite the file.
-- Open source. Repo: set the `REPO_URL` constant in `site/js/app.js` when publishing.
+- Open source. Live at https://gambi-ai.github.io/the-wake/ (served from `docs/`).
