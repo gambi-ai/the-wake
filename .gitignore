@@ -1,0 +1,5 @@
+# sample API dumps kept locally for reference; the site uses site/data/snapshot.json
+/data/
+# stray local previews (the committed ones live in assets/)
+/preview-*.png
+*.log
